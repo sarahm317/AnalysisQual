@@ -4,8 +4,21 @@
 
 \section{Uncategorized}
 
+\section{Analytic Functions}
+
+\begin{definition}[Domain]
+    \labdef{domain}
+    A domain is an open, connected subset of $\C$.
+\end{definition}
+
 \begin{theorem}[Cauchy Riemann Equations]
-    
+    \labthm{cauchy-riemann}
+    Let $f=u + iv$ be defined on a domain $D$ in the complex plane, with both $u$ and $v$ real-valued functions. Then, $f(z)$ is analytic on $D$ if and only if $u(x,y)$ and $v(x,y)$ have continuous first-order partial derivatives that satisfy the Cauchy-Riemann equations:
+
+    \[\frac{\partial u}{\partial x} = \frac{\partial v}{\partial y}, \quad \frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x}\]
+
+    Furthermore, the complex derivative of $f$ can be computed as
+    \[f'(z) = u_x + iv_x = v_y - iu_y.\]
 \end{theorem}
 
 \begin{theorem}[Cauchy Integral Formula]
