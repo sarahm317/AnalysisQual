@@ -22,8 +22,16 @@
     \maketitle
 
     \mainmatter
-    \input{sections/overview.tex}
-    \input{sections/theorems.tex}
-    \input{sections/cauchyriemann.tex}
-    \input{sections/inprogress.tex}
+    \setchapterstyle{kao}
+    \setchapterpreamble[u]{\margintoc}
+    \chapter{Exam Overview}
+
+    \chapter{Complex Analysis Notes}
+        \input{complexNotes/analytic.tex}
+
+    \chapter{Complex Analysis Problems}
+        \input{complexProblems/cauchyriemann.tex}
+
+    \chapter{Real Analysis}
+    \chapter{Real Analysis Problems}
 \end{document}
