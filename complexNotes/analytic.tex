@@ -1,0 +1,93 @@
+\section{Analytic Functions}
+
+\begin{definition}[Differentiable, Complex Derivative]
+    \labdef{derivative}
+    A complex-valued function $f(z)$ is differentiable at $z_0$ if 
+        \[\lim_{z \to z_0} \frac{f(z) - f(z_0)}{z-z_0}\]
+    exists. If this limit exists, its value is the complex derivative of $f(z)$ at $z_0$.
+\end{definition}
+
+Many of the derivative properties for real-valued functions transfer over to the complex derivative. The product rule, quotient rule, and chain rule all still hold. Derivatives of sums and constant multiples behave as expected as well. If a complex function is differentiable at a point, then it also must be continuous at that point.
+
+\begin{definition}[Analytic]
+    \labdef{analytic}
+    A function $f(z)$ is analytic on the open set $U$ if $f(z)$ is (complex) differentiable at each point in $U$  and the complex derivative $f'(z)$ is continuous on $U$.
+\end{definition}
+
+\begin{example}
+    Some common examples of analytic functions:
+
+    \begin{itemize}
+        \item A polynomial on $\C$.
+        \item The exponential function on $\C$.
+        \item Rational functions, where they are finite.
+    \end{itemize}
+\end{example}
+
+\begin{example}
+    Conjugation is \emph{not} analytic. In fact, the derivative of the function $f(z) = \ol{z}$ does not exist anywhere in $\C$.
+
+    \begin{proof}
+        Write $f(x + iy) = x -iy$ and define $u(x,y) = x$, $v(x,y) = -1$. A quick computation shows that $u_x = 1 \neq -1 = v_y$. Then, the Cauchy Riemann equations (\refthm{cauchy-riemann}) are not satisfied and so $f$ is not analytic.\\
+
+        To see that $f$ is nowhere differentiable, we consider the limit
+            \[\lim_{z \to z_0} \frac{f(z) - f(z_0)}{z - z_0}.\]
+        Write $z = x + iy$ and $z_0 = a + ib$. Then,
+            \[\lim_{z \to z_0} \frac{f(z) - f(z_0)}{z - z_0} = \lim_{(x,y) \to (a,b)} \frac{(x-iy) - (a - ib)}{(x + iy) - (a+bi)}\]
+    \end{proof}
+\end{example}
+
+\begin{definition}[Domain]
+    \labdef{domain}
+    A domain is an open, connected subset of $\C$.
+\end{definition}
+
+\begin{theorem}[Cauchy Riemann Equations]
+    \labthm{cauchy-riemann}
+    Let $f=u + iv$ be defined on a domain $D$ in the complex plane, with both $u$ and $v$ real-valued functions. Then, $f(z)$ is analytic on $D$ if and only if $u(x,y)$ and $v(x,y)$ have continuous first-order partial derivatives that satisfy the Cauchy-Riemann equations:
+
+    \[\frac{\partial u}{\partial x} = \frac{\partial v}{\partial y}, \quad \frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x}\]
+
+    Furthermore, the complex derivative of $f$ can be computed as
+    \[f'(z) = u_x + iv_x = v_y - iu_y.\]
+\end{theorem}
+
+\subsection{Common Cauchy-Riemann Applications}
+\begin{proposition}
+    Suppose that $f(z)$ is analytic on a domain $D$ and $f'(z) = 0$ on $D$. Then, $f(z)$ is constant on $D$.
+\end{proposition}
+
+\begin{proposition}
+    Suppose that $f(z)$ is analytic and real-valued on a domain $D$. Then, $f(z)$ is constant on $D$.
+\end{proposition}
+
+\begin{proposition}
+    If $f$ and $\ol{f}$ are both analytic on a domain $D$, then $f$ is constant on $D$.
+\end{proposition}
+
+\begin{proposition}
+    If $f$ is analytic on a domain $D$, and if $|f|$ is constant, then $f$ is constant.
+\end{proposition}
+
+\begin{proof}
+    Notice that $\ol{f} = \frac{|f|^2}{f}$.
+\end{proof}
+
+
+\begin{definition}[Harmonic]
+    \labdef{harmonic}
+    A function $u(x,y)$ is harmonic if all of its first and second order partial derivatives exist and are continuous, and $u(x,y)$ satisfies Laplace's equation:
+
+    \[\frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2}=0\]
+\end{definition}
+
+\begin{definition}[Harmonic conjugate]
+    \labdef{harmonic-conjugate}
+    Suppose that $u$ is harmonic on a domain $D$. If there exists a harmonic function $v$ such that $u + iv$ is analytic on $D$, then $v$ is a harmonic conjugate of $u$.
+\end{definition}
+
+It's not too difficult to see that harmonic conjugates are unique, up to addition of a constant.
+
+\begin{theorem}
+    Suppose that $f = u + iv$ is an analytic function with all second-order partials of $u$ and $v$ continuous. Then, $u$ and $v$ are harmonic.
+\end{theorem}
